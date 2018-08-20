@@ -1,20 +1,50 @@
 
-Pod::Spec.new do |spec|
-  spec.name = 'yoga-ios'
-  spec.version = "0.56.0"
-  spec.license =  { :type => 'MIT' }
-  spec.homepage = 'https://facebook.github.io/yoga/'
-  spec.documentation_url = 'https://facebook.github.io/yoga/docs/api/c/'
 
-  spec.summary = 'Yoga is a cross-platform layout engine which implements Flexbox.'
-  spec.description = 'Yoga is a cross-platform layout engine enabling maximum collaboration within your team by implementing an API many designers are familiar with, and opening it up to developers across different platforms.'
 
-  spec.authors = 'Facebook'
-  spec.source = source
+#
+#  Be sure to run `s.dependency spec lint AFNetworking_PinLib.s.dependencyspec' to ensure this is a
+#  valid spec and to remove all comments including this before submitting the spec.
+#
+#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
+#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
+#
 
-  spec.module_name = 'yoga'
-  spec.requires_arc = false
-  spec.compiler_flags = [
+Pod::Spec.new do |s|
+
+
+  s.name         = "yoga-ios"
+  s.version      = "0.56.0"
+  s.summary      = "yoga Source for React Native iOS"
+  s.homepage     = "https://github.com/ReactNativeiOS/yoga-ios"
+  s.license      = { :type => 'Apache License, Version 2.0', :text => <<-LICENSE
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    LICENSE
+  }
+
+  s.author             = { "wade0317" => "weishqdev@gmail.com" }
+  
+
+  s.platforms = { :ios => "9.0", :tvos => "9.2" }
+
+
+  s.source       = {:git => "https://github.com/ReactNativeiOS/yoga-ios.git", :tag => "#{s.version}"}
+  s.source_files  = "yoga/**/*.{cpp,h}"
+  s.public_header_files  = 'yoga/{Yoga,YGEnums,YGMacros}.h'
+
+
+  s.module_name = 'yoga'
+  s.requires_arc = false
+  s.compiler_flags = [
       '-fno-omit-frame-pointer',
       '-fexceptions',
       '-Wall',
@@ -23,14 +53,7 @@ Pod::Spec.new do |spec|
       '-fPIC'
   ]
 
-  # Pinning to the same version as React.podspec.
-  spec.platforms = { :ios => "9.0", :tvos => "9.2" }
+  s.xcconfig = { 'USER_HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/yoga-ios/**"', 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/yoga-ios/**"'}
 
-  # Set this environment variable when *not* using the `:path` option to install the pod.
-  # E.g. when publishing this spec to a spec repo.
-  source_files = 'yoga/**/*.{cpp,h}'
-  spec.source_files = source_files
 
-  header_files = 'yoga/{Yoga,YGEnums,YGMacros}.h'
-  spec.public_header_files = header_files
 end
