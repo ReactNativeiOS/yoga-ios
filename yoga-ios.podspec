@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "yoga-ios"
-  s.version      = "0.56.0"
+  s.version      = "0.56.1"
   s.summary      = "yoga Source for React Native iOS"
   s.homepage     = "https://github.com/ReactNativeiOS/yoga-ios"
   s.license      = { :type => 'Apache License, Version 2.0', :text => <<-LICENSE
