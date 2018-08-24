@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.author             = { "wade0317" => "weishqdev@gmail.com" }
   
 
-  s.platforms = { :ios => "9.0", :tvos => "9.2" }
+  s.ios.deployment_target = '9.0'
 
 
   s.source       = {:git => "https://github.com/ReactNativeiOS/yoga-ios.git", :tag => "#{s.version}"}
