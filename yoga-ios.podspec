@@ -38,7 +38,9 @@ Pod::Spec.new do |s|
 
 
   s.source       = {:git => "https://github.com/ReactNativeiOS/yoga-ios.git", :tag => "#{s.version}"}
+
   s.source_files  = "yoga/**/*.{cpp,h}"
+  
   s.public_header_files  = 'yoga/{Yoga,YGEnums,YGMacros}.h'
 
 
